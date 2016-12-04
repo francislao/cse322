@@ -1,0 +1,57 @@
+<html>
+<title>Favorite Japanese food</title>
+<body>
+<span style="font-size: 21px; font-family: Tahoma"><center>Favorite Japanese Food</center></center></span>
+<p>
+<div id="main-page" style="background-color: #DDDDFF; width : 1120px; height : 800px;">  
+<div id="food-menu" style="background-color: #FFFF99; position : relative; left: 630px; width : 475px; font-size: 17px; font-family: Verdana">
+    <a href="javascript:void(0);" onclick="loadDishHtml('Shoyu-Ramen.html');"><span style="color: #CC0000"><b>1.</b></span> Shoyu Ramen from Nagi Ramen (Tokyo)</a><br>
+    <a href="javascript:void(0);" onclick="loadDishHtml('Yuzu-Shoyu.html');"><span style="color: #CC0000"><b>2.</b></span> Yuzu-Shoyu Ramen from Afuri Ramen (Tokyo)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Yakitori.html');"><span style="color: #CC0000"><b>3.</b></span> Yakitori from Yakitori Ton Ton (Tokyo)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Shio-Ramen.html');"><span style="color: #CC0000"><b>4.</b></span> Shio Ramen from Ganko (Tokyo)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Bourbon-Hot-Dog.html');"><span style="color: #CC0000"><b>5.</b></span> Bourbon Hot Dog from Bar High Five (Tokyo)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Shio-Ramen2.html');"><span style="color: #CC0000"><b>6.</b></span> Shio Ramen from Ramen Street (Tokyo)</a><br>    
+    <a href="javascript:void(0);" onclick="loadDishHtml('Soba-Magome.html');"><span style="color: #CC0000"><b>7.</b></span> Soba from Magome (Kiso Valley)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Teishoku.html');"><span style="color: #CC0000"><b>8.</b></span> Teishoku at a Ryokan (Tsumago)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Fire-Ramen.html');"><span style="color: #CC0000"><b>9.</b></span> "Fire Ramen" from Men Baka Ichidai (Kyoto)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Street-Food.html');"><span style="color: #CC0000"><b>10.</b></span> Street Food from Nishiki Food Market (Kyoto)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Akaniku-Ramen.html');"><span style="color: #CC0000"><b>11.</b></span> Akaniku Ramen from Ippudo The Original (Fukuoka)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Tonkotsu-Ramen.html');"><span style="color: #CC0000"><b>12.</b></span> Tonkotsu Ramen from Shin Shin (Fukuoka)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Ramen-Carts.html');"><span style="color: #CC0000"><b>13.</b></span> Ramen from Food Carts (Fukuoka)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Tonkotsu-Ramen-Fat.html');"><span style="color: #CC0000"><b>14.</b></span> Tonkotsu Ramen with Fried Pork Fat from Hide-Chan (Fukuoka)</a><br> 
+    <a href="javascript:void(0);" onclick="loadDishHtml('Tonkotsu-Ramen-Ichiran.html');"><span style="color: #CC0000"><b>15.</b></span> Tonkotsu Ramen from Ichiran (Fukuoka)</a><br> 
+</div>
+</p>
+
+<div id="showcase" style="position : absolute; top: 35px; left: 10px; width : 800px;"/>
+
+</div>
+
+<script src="ajax.js"></script>
+<div id="fb-root"></div>
+
+<script>
+(function(d, s, id) 
+{
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));   
+    
+function loadDishHtml(dish_html)
+{
+    var container = document.getElementById('showcase');
+    ajax(dish_html, null, function(resp) {
+        container.innerHTML = resp.msg;
+        FB.XFBML.parse();
+    });
+}
+loadDishHtml('Shoyu-Ramen.html');
+</script>
+    
+</body>
+</html>
+
+
